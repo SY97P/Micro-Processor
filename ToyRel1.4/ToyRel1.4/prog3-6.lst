@@ -1,0 +1,16 @@
+Addr      Code         Line    Program
+0x002000: 0x239f0005: (  3) 	LOAD R1, value		; load value into R1
+0x002001: 0x1fa31003: (  4) 	ASR R2, R1, 3		; shift right 3 bits
+0x002002: 0x402f0004: (  5) 	STORE R2, quot		; store R2 on quot 
+0x002003: 0x0ba30007: (  6) 	AND R2, R1, 0x07	; mask the last 3 bits
+0x002004: 0x402f0003: (  7) 	STORE R2, remain	; store R2 on remain
+0x002005: 0x63ffffff: (  9) halt: 	BR nzp halt		; branch here forever
+0x002006: 0x00012345: ( 11) value:	.FILL 0x12345		; space for value with init. val.
+0x002007: 0x00000000: ( 12) quot:	.BLOCK 1		; space quot without init. val.
+0x002008: 0x00000000: ( 13) remain:	.BLOCK 1		; space for remain without init. val
+
+---- symbol table ----
+    halt: 0x2005
+   value: 0x2006
+    quot: 0x2007
+  remain: 0x2008
